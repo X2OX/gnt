@@ -26,7 +26,7 @@ var (
 )
 
 func SendText(msg string) {
-	mc := tba.NewMessage(5099998680, msg)
+	mc := tba.NewMessage(tid, msg)
 	mc.ParseMode = "MarkdownV2"
 
 	_, err := bot.Send(mc)
@@ -36,11 +36,11 @@ func SendText(msg string) {
 }
 
 func SendMessage(msg, url string) {
-	mc := tba.NewMessage(5099998680, msg)
+	mc := tba.NewMessage(tid, msg)
 	mc.ParseMode = "MarkdownV2"
 	if url != "" {
 		mc.ReplyMarkup = tba.NewInlineKeyboardMarkup(tba.NewInlineKeyboardRow(
-			tba.NewInlineKeyboardButtonURL("查看", url),
+			tba.NewInlineKeyboardButtonURL("View", url),
 		))
 	}
 
